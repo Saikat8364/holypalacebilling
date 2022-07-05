@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/final.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <title></title>
+</head>
+
+<body>
+  <div class="card">
+    <div class="card-body">
+      <div class="container mb-5 mt-3">
+        <div class="row d-flex align-items-baseline">
+          <div class="col-xl-9">
+            <p style="color: #7e8d9f;font-size: 20px;">Invoice >> <strong>ID: <%= items[0].id%></strong></p>
+          </div>
+          <div class="col-xl-3 float-end">
+            <a id="printpagebutton" class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark" onclick="printpage()"><i class="fas fa-print text-primary"></i> Print</a>
+            <a id="gobackbtn" class="btn btn-light text-capitalize" data-mdb-ripple-color="dark" href="/control/bu"><i class="far fa-file-pdf text-danger"></i> New Invoice</a>
+          </div>
+          <hr>
+        </div>
+
+        <div class="container">
+          <div class="col-md-12">
+            <div class="text-center">
+              <h1>Holy Palace Multipurpose Institute</h1>
+            </div>
+
+          </div>
+
+
+          <div class="row">
+            <div class="col-xl-8">
+              <ul class="list-unstyled">
+                <li class="text-muted">To: <span style="color:#5d9fc5 ;"><%= items[0].name%></span></li>
+                <li class="text-muted">ID: <%= items[0].studentid%></li>
+                <li class="text-muted"><i class="fas fa-phone"></i>Class : <%= items[0].class%></li>
+              </ul>
+            </div>
+            <div class="col-xl-4">
+              <p class="text-muted">Invoice</p>
+              <ul class="list-unstyled">
+                <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span class="fw-bold">ID:</span><%= items[0].id%></li>
+                <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span class="fw-bold">Date: </span><%= items[0].date%></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row my-2 mx-1 justify-content-center">
+            <table class="table table-striped">
+              <thead style="background-color:#2C3639 ;" class="text-red">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">Unit Price</th>
+                  <th scope="col">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% var n=1; %>
+                <% if(items[0].bquant=='1'){%>
+                  <tr>
+                    <th scope="row"><%= n%></th>
+                    <% n=n+1; %>
+                    <td>Books</td>
+                    <td><%= items[0].bquant%></td>
+                    <td><%= items[0].bcost%></td>
+                    <td>
+                      <%= items[0].bcost%>
+                    </td>
+                  </tr>
+                <%}%>
+                <% if(items[0].cquant=='1'){%>
+                  <tr>
+                    <th scope="row"><%= n%></th>
+                    <td>Copies</td>
+                    <td><%= items[0].cquant%></td>
+                    <td><%= items[0].ccost%></td>
+                    <td><%= items[0].ccost%></td>
+                  </tr>
+                <%}%>
+
+              </tbody>
+
+            </table>
+          </div>
+          <div class="row">
+            <div class="col-xl-8">
+              <p class="ms-3">Authorised By : <%= items[0].admin%></p>
+
+            </div>
+            <div class="col-xl-3">
+              <ul class="list-unstyled">
+                <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span><%= items[0].subtotal%></li>
+                <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Discount (<%= items[0].discount%>%)</span> <%= items[0].dis_amt%></li>
+              </ul>
+              <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;"><%= items[0].total%></span></p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-xl-10">
+              <p>Thank you for your purchase</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function printpage() {
+      //Get the print button and put it into a variable
+      var printButton = document.getElementById("printpagebutton");
+      var backButton = document.getElementById("gobackbtn");
+      //Set the print button visibility to 'hidden'
+      printButton.style.visibility = 'hidden';
+      backButton.style.visibility = 'hidden';
+      //Print the page content
+      window.print();
+      //Set the print button to 'visible' again
+      //[Delete this line if you want it to stay hidden after printing]
+      printButton.style.visibility = 'visible';
+      backButton.style.visibility = 'visible';
+    }
+  </script>
+</body>
+
+</html>

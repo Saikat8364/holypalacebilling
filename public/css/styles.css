@@ -1,0 +1,54 @@
+h3{
+  color: red;
+}
+body{
+  background-color: #2C3639;
+  font-family: 'Oswald', sans-serif;
+  font-size: 2rem;
+  color: #DCD7C9;
+}
+/* .container{
+  padding-right: 10rem;
+  padding-left: 10rem;
+} */
+.loginbtn{
+  padding-top: 1rem;
+  /* padding-right: 13rem;
+  padding-left: 13rem; */
+  text-align: center;
+  width: 75%;
+}
+.top-head{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: #3F4E4F;
+  text-align: center;
+}
+
+.middle{
+  padding-top: 5rem;
+}
+.control-middle{
+  padding-top: 5rem;
+  text-align: center;
+}
+.nu-middle{
+  padding-top: 5rem;
+  font-size: 1rem;
+  text-align: left;
+}
+/* .bu-mid{
+  text-align: center;
+}
+.bu{
+  width: 75%;
+} */
+.logoutbtn{
+  position: relative;
+  top:30px;
+  left: 900px;
+}
+.wel{
+  position: relative;
+  top:40px;
+}

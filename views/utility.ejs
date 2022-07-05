@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <script src="/js/script.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <div class="top-head">
+    <h1>Holy Palace Multipurpose Institute</h1>
+    <br>
+    <h2>Book Billing System</h2>
+    <div class="row container">
+      <div class="col col-lg-6">
+        <h2 class="wel">Welcome <%= uname%>!</h2>
+      </div>
+      <div class="col col-lg-6">
+        <a class="btn btn-light btn-lg logoutbtn" href="/logout" role="button">Logout</a>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="container bu-mid">
+    <form action="/submit" method="post">
+      <h2 name="stuname" id="stuname"><%= sname%>, <%= sid%></h2>
+      <label for="class">Choose class:</label>
+      <select id="class" name="class" class="form-control">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+      <br>
+      <label for="lang">Choose Language:</label>
+      <select id="lang" name="lang" class="form-control">
+        <option value="beng">Bengali</option>
+        <option value="hin">Hindi</option>
+      </select>
+      <br>
+      <label for="po">Purchase Options:</label>
+      <select id="po" name="po" class="form-control">
+        <option value="bc">Both Books and Copies</option>
+        <option value="b">Books</option>
+        <option value="c">Copies</option>
+      </select>
+      <br>
+      <label for="dis">Enter Discount</label>
+      <input type="text" class="form-control form-control-lg bu" name="dis" id="dis" required>
+      <button type="submit" class="btn btn-primary btn-lg inp">Submit</button>
+    </form>
+  </div>
+</body>
+
+</html>

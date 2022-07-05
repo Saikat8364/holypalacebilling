@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="top-head">
+    <h1>Holy Palace Multipurpose Institute</h1>
+    <br>
+    <h2>Book Billing System</h2>
+    <div class="row container">
+      <div class="col col-lg-6">
+        <h2 class="wel">Welcome <%= name%>!</h2>
+      </div>
+      <div class="col col-lg-6">
+        <a class="btn btn-light btn-lg logoutbtn" href="/logout" role="button">Logout</a>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="container bu-mid">
+    <form action="/post-uid" method="post">
+      <div class="">
+        <label for="uid">Enter the Student Unique ID</label>
+        <input type="text" class="form-control form-control-lg bu" name="uid" id="uid" required>
+      </div>
+      <br>
+      <div class="">
+        <button type="submit" class="btn btn-block btn-primary btn-lg bu">Submit</button>
+      </div>
+    </form>
+    <a class="btn btn-light btn-lg" href="/manuser" role="button">Proceed without Registration ID</a>
+  </div>
+</body>
+
+</html>

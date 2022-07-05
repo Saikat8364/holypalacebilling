@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="top-head">
+    <h1>Holy Palace Multipurpose Institute</h1>
+    <br>
+    <h2>Book Billing System</h2>
+  </div>
+  <div class="nu-middle container">
+    <form action="/nu" method="post">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="mailid">Email</label>
+          <input type="email" class="form-control" name="mailid" id="mailid">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" id="password">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="uname">UserName</label>
+          <input type="text" class="form-control" name="uname" id="uname">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="fname">Full Name</label>
+          <input type="text" class="form-control" name="fname" id="fname">
+        </div>
+      </div>
+      <div class="form-row">
+        <h3 class="container">UserName already exists. Please enter a valid UserName.</h3>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Register User</button>
+    </form>
+  </div>
+</body>
+
+</html>

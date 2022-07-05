@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/final.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <title></title>
+</head>
+
+<body>
+  <h1>Final page</h1>
+  <input class="btn" id="printpagebutton" type="button" value="Print this page" onclick="printpage()" />
+  <a id="gobackbtn" class="btn btn-light btn-lg btn-block" href="/control/bu" role="button">New Invoice</a>
+
+  <div class="">
+    <p>Authorizing User : <%= uname%></p>
+    <p>Student Name : <%= sname%></p>
+    <p>Student Id : <%= sid%></p>
+    <p>Book's Cost : <%= bcost%></p>
+    <p>Copy's Cost : <%= ccost%></p>
+    <p>Total Cost : <%= tcost%></p>
+    <p>Class : <%= class%></p>
+    <p>Language : <%= lang%></p>
+  </div>
+  <script type="text/javascript">
+    function printpage() {
+      //Get the print button and put it into a variable
+      var printButton = document.getElementById("printpagebutton");
+      var backButton = document.getElementById("gobackbtn");
+      //Set the print button visibility to 'hidden'
+      printButton.style.visibility = 'hidden';
+      backButton.style.visibility = 'hidden';
+      //Print the page content
+      window.print();
+      //Set the print button to 'visible' again
+      //[Delete this line if you want it to stay hidden after printing]
+      printButton.style.visibility = 'visible';
+      backButton.style.visibility = 'visible';
+    }
+  </script>
+</body>
+
+</html>
