@@ -23,13 +23,21 @@
       </div>
     </div>
     <div class="control-middle container">
-      <form action="/control" method="post">
-        <a class="btn btn-light btn-lg btn-block" href="/ns" role="button">Register New Student</a>
-        <a class="btn btn-light btn-lg btn-block" href="/uc" role="button">Update Cost</a>
-        <br>
-      </form>
+      <h2>Cost Updated Successfully!</h2>
+      <p>Updated Costs : </p>
+      <p>Class : <%= uclass%></p>
+      <%var l=lang%>
+      <%if(l=='hin'){%>
+          <%l="Hindi";%>
+      <%}else{%>
+          <%l="Bengali";%>
+      <%}%>
+      <p>Language : <%= l%></p>
+      <p>New Books Cost : <%= ubc%></p>
+      <p>New Copies and Covers Cost : <%= ucc%></p>
     </div>
     <div class="container loginbtn">
+      <a class="btn btn-light btn-lg" href="/uc" role="button">Go Back</a>
       <a class="btn btn-light btn-lg" href="/control" role="button">Go Home</a>
     </div>
   </body>

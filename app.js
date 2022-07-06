@@ -138,6 +138,28 @@ app.post('/ns',function(req,res){
 	});
 });
 
+app.get('/uc',function(req,res){
+	if(req.session.loggedin){
+    res.render("uc",{name:req.session.username});
+  }
+  else{
+    res.redirect("/control");
+  }
+});
+
+app.post('/uc',function(req,res){
+	var sql1 = "select pid from pricing where class='"+req.body.class+"' and lang = '"+req.body.lang+"';";
+	con.query(sql1,function(err,result){
+		if(err) throw err;
+		var pid = result[0].pid;
+		var sql2 = "UPDATE `pricing` SET `bookprice` = '"+req.body.ubc+"', `copyprice` = '"+req.body.ucc+"' WHERE (`pid` = '"+pid+"');"
+		con.query(sql2,function(err,result){
+			if(err) throw err;
+			res.render('ucs',{name:req.session.username,ubc:req.body.ubc,ucc:req.body.ucc,uclass:req.body.class,lang:req.body.lang});
+		});
+	});
+});
+
 app.get('/control/bu',function(req,res){
   if(req.session.loggedin){
     res.render("bu",{name:req.session.username});
