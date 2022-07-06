@@ -67,7 +67,14 @@ app.get('/control',function(req,res){
 });
 
 app.get('/nu',function(req,res){
-  res.render('nu');
+	if(req.session.loggedin){
+    console.log(req.session.username);
+    res.render('nu');
+  }
+  else{
+    res.redirect("/control");
+  }
+
 });
 
 app.post('/nu',function(req,res){
@@ -91,6 +98,45 @@ app.post('/nu',function(req,res){
   });
 });
 
+app.get('/dbms',function(req,res){
+	if(req.session.loggedin){
+    res.render("dbmshome",{name:req.session.username});
+  }
+  else{
+    res.redirect("/control");
+  }
+});
+
+app.get('/ns', function(req,res){
+	if(req.session.loggedin){
+    res.render("ns",{name:req.session.username});
+  }
+  else{
+    res.redirect("/control");
+  }
+});
+
+app.post('/ns',function(req,res){
+	rid=req.body.rid;
+	rname=req.body.nname;
+	var sql1 = "select * from studentdb where sid = '"+rid+"';";
+	con.query(sql1,function(err,result){
+		if(err) throw err;
+		if(result.length>0){
+			res.render('nsf',{name:req.session.username,rname:result[0].name});
+		}else{
+			var sql = "insert into studentdb (sid,name) values ('"+rid+"', '"+rname+"');";
+			con.query(sql,function(err,result){
+				if(err) throw err;
+				var sql2 = "select * from studentdb where sid = '"+rid+"';";
+				con.query(sql2,function(err,result){
+					if(err) throw err;
+					res.render('nss',{name:req.session.username,rid:result[0].sid,rname:result[0].name});
+				});
+			});
+		}
+	});
+});
 
 app.get('/control/bu',function(req,res){
   if(req.session.loggedin){

@@ -23,13 +23,19 @@
       </div>
     </div>
     <div class="control-middle container">
-      <form action="/control" method="post">
-        <a class="btn btn-light btn-lg btn-block" href="/nu" role="button">Register New Admin User</a>
+      <form action="/ns" method="post">
+        <h2>Register a new student.</h2>
         <br>
-        <a class="btn btn-light btn-lg btn-block" href="/control/bu" role="button">Invoicing Utility</a>
+        <label for="rid">Enter Student's Registration ID</label>
+        <input type="text" class="form-control form-control-lg inp" name="rid" id="rid" placeholder="Enter Student's Registration ID" autofocus required>
         <br>
-        <a class="btn btn-light btn-lg btn-block" href="/dbms" role="button">DataBase Management Utility</a>
+        <label for="nname">Enter Student's Name</label>
+        <input type="text" class="form-control form-control-lg inp" name="nname" id="nname" placeholder="Enter Student's Name" required>
+        <div class="container loginbtn">
+          <button type="submit" class="btn btn-block btn-primary btn-lg inp">Register!</button>
+        </div>
       </form>
     </div>
+
   </body>
 </html>
